@@ -1,0 +1,13 @@
+.width{
+    width:100%;
+    overflow: hidden;
+}
+.clsimg{
+    width:100%;
+    /* height:vh; */
+    background-color: #ffffff; /* White */
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1); /* Box shadow for white sections */
+}
+h6{
+    line-height: 2.0;
+}
