@@ -77,7 +77,7 @@ const News = () => {
   const handleAdd = async () => {
     // e.preventDefault();
     try {
-      alert(JSON.stringify(add));
+    
       const formData = new FormData();
       formData.append("image", add.image);
       formData.append("heading", add.heading);
@@ -86,7 +86,7 @@ const News = () => {
       formData.append("category", add.category);
       let response;
       if (add._id) {
-        alert(add._id);
+       
         response = await axios.put(
           `https://news-back-end-iota.vercel.app/content/put/${add._id}`,
           formData,
