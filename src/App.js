@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+
 import Navbar from './Components/Homenavbar';
 import Homenavbar from './Components/Homenavbar';
 import { BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
@@ -9,6 +10,7 @@ import News from './Components/News';
 import User from './Components/User';
 import Contact from './Components/Contact'
 import NewsDetail from './Components/NewsDetail';
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
     <>
     <div>
       <Router>
+      <Toaster></Toaster>
       <Homenavbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>

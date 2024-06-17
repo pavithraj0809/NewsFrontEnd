@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Components/Home.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,8 +20,10 @@ const Home = () => {
 
   const getData = async () => {
     try {
+  
       const response = await axios.get("https://news-back-end-iota.vercel.app/content/get");
       console.log("Data", response.data);
+    
       setData(response.data);
     } catch (error) {
       console.log(error);
@@ -74,7 +77,7 @@ const Home = () => {
           return (
             <div className="col-lg-3 col-md-3 col-sm-12 mt-4 p-2">
               <Card  style={{ width: "18rem"}}>
-                <Card.Img variant="top" src={backendPath + e.image} />
+                {/* <Card.Img variant="top" src={backendPath + e.image} /> */}
 
                 <Card.Body>
                   <Card.Title>{e.heading}</Card.Title>

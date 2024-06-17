@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -29,7 +29,9 @@ const News = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://news-back-end-iota.vercel.app/content/get");
+      const response = await axios.get(
+        "https://news-back-end-iota.vercel.app/content/get"
+      );
       console.log("Data", response.data);
       setData(response.data);
     } catch (error) {
@@ -43,7 +45,7 @@ const News = () => {
         `https://news-back-end-iota.vercel.app/content/delete/${id}`
       );
       console.log("data", response);
-      toast.error(response.data.message,{position:"top-center"});
+      toast.error(response.data.message, { position: "top-center" });
 
       getData();
     } catch (error) {
@@ -83,8 +85,8 @@ const News = () => {
       formData.append("author", add.author);
       formData.append("category", add.category);
       let response;
-      if(add._id){
-        alert(add._id)
+      if (add._id) {
+        alert(add._id);
         response = await axios.put(
           `https://news-back-end-iota.vercel.app/content/put/${add._id}`,
           formData,
@@ -94,11 +96,9 @@ const News = () => {
             },
           }
         );
-        toast.success(response.data.message,{position:"top-center"});
-
-      }
-      else{
-         response = await axios.post(
+        toast.success(response.data.message, { position: "top-center" });
+      } else {
+        response = await axios.post(
           "https://news-back-end-iota.vercel.app/content/post",
           formData,
           {
@@ -107,10 +107,12 @@ const News = () => {
             },
           }
         );
-        toast.success(response.data.message,{position:"top-center",style:{ color:"black",background:'orange'}});
-
+        toast.success(response.data.message, {
+          position: "top-center",
+          style: { color: "black", background: "orange" },
+        });
       }
-   
+
       console.log(response.data);
       console.log("data", response.data);
       setShow(false);
@@ -142,21 +144,23 @@ const News = () => {
 
   const edit = (id) => {
     setShow(true);
-    const filterData=data.filter((response)=>response._id===id);
-    console.log(filterData)
+    const filterData = data.filter((response) => response._id === id);
+    console.log(filterData);
     setAdd({
-      _id:id,
-      heading:filterData[0].heading,
-      content:filterData[0].content,
-      author:filterData[0].author,
-      category:filterData[0].category,
-      image:filterData[0].image
-    })
+      _id: id,
+      heading: filterData[0].heading,
+      content: filterData[0].content,
+      author: filterData[0].author,
+      category: filterData[0].category,
+      image: filterData[0].image,
+    });
   };
 
   const fetchAuthors = async () => {
     try {
-      const response = await axios.get("https://news-back-end-iota.vercel.app/user/get");
+      const response = await axios.get(
+        "https://news-back-end-iota.vercel.app/user/get"
+      );
       setAuthor(response.data);
     } catch (error) {
       console.error("Error fetching authors:", error);
@@ -164,7 +168,9 @@ const News = () => {
   };
   const fetchCategory = async () => {
     try {
-      const response = await axios.get("https://news-back-end-iota.vercel.app/user/get");
+      const response = await axios.get(
+        "https://news-back-end-iota.vercel.app/user/get"
+      );
       setCategory(response.data);
     } catch (error) {
       console.log(error);
@@ -174,9 +180,8 @@ const News = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/about');
+    navigate("/about");
   };
-
 
   //
 
@@ -208,7 +213,8 @@ const News = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label className="text-dark">News Content</Form.Label>
-              <Form.Control value={add.content}
+              <Form.Control
+                value={add.content}
                 as="textarea"
                 onChange={(e) => setAdd({ ...add, content: e.target.value })}
                 rows={10}
@@ -219,7 +225,8 @@ const News = () => {
             <Form.Label className="text-dark">Author</Form.Label>
             {/* <Form.Control type="" placeholder="Enter a userName" autoFocus /> */}
             <Form.Control
-              as="select" value={add.author}
+              as="select"
+              value={add.author}
               onChange={(e) => setAdd({ ...add, author: e.target.value })}
             >
               <option>Select an author</option>
@@ -233,7 +240,8 @@ const News = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
             <Form.Label className="text-dark">Category</Form.Label>
             <Form.Control
-              as="select" value={add.category}
+              as="select"
+              value={add.category}
               onChange={(e) => setAdd({ ...add, category: e.target.value })}
             >
               <option value="">Select an Category</option>
@@ -280,10 +288,10 @@ const News = () => {
             <tr>
               <th>S.No</th>
               <th>Heading</th>
-              
+
               <th>Author</th>
               <th>Category</th>
-              
+
               <th>Action</th>
             </tr>
           </thead>
@@ -294,9 +302,9 @@ const News = () => {
                   <td>{index + 1}</td>
                   <td>{resdata.heading}</td>
                   <td>{resdata.author}</td>
-                  
+
                   <td>{resdata.category}</td>
-                  
+
                   <td className="d-flex text-center">
                     <button
                       className=" btn btn-success  mx-2"

@@ -28,12 +28,12 @@ const NewsDetail = () => {
         <div className="col-lg-3 col-md-3 col-sm-12"></div>
         <div className="col-lg-6 col-md-6 col-sm-12 ">
           <div className="my-4">
-            <img
+            {/* <img
               src={backendPath + data.image}
               alt="About Website"
               className="img-fluid text-center"
               style={{ width: "100%", justifyContent: "center" }}
-            />
+            /> */}
           </div>
         </div>
         <div className="col-lg-3 col-md-3 col-sm-12"></div>
