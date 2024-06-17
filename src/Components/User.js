@@ -28,7 +28,7 @@ const User = () => {
   const [data, setData] = useState([""]);
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/user/get");
+      const response = await axios.get("https://news-back-end-iota.vercel.app/user/get");
       console.log("data", response.data);
       setData(response.data);
     } catch (error) {
@@ -39,7 +39,7 @@ const User = () => {
   const deleteData = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/user/delete/${id}`
+        `https://news-back-end-iota.vercel.app/user/delete/${id}`
       );
       console.log("data", response);
       // alert("Data Deleted SuccessFully")
@@ -74,13 +74,13 @@ const User = () => {
     try {
       let response;
       if (add._id == "") {
-        response = await axios.post("http://localhost:4000/user/post", add);
+        response = await axios.post("https://news-back-end-iota.vercel.app/user/post", add);
         console.log("data", response);
         toast.success(response.data.message,{position:"top-center"});
 
       } else {
         response = await axios.put(
-          `http://localhost:4000/user/put/${add._id}`,
+          `https://news-back-end-iota.vercel.app/user/put/${add._id}`,
           add
         );
         toast.success(response.data.message,{position:"top-center",style:{ color:"black",background:'orange'}});

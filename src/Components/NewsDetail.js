@@ -12,7 +12,7 @@ const NewsDetail = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/content/get");
+      const response = await axios.get("https://news-back-end-iota.vercel.app/content/get");
       console.log("Data", response.data);
 
       setData(response.data.find((e) => e._id == id));
@@ -20,7 +20,7 @@ const NewsDetail = () => {
       console.log(error);
     }
   };
-  const backendPath = "http://localhost:4000/";
+  const backendPath = "https://news-back-end-iota.vercel.app/";
   return (
     <>
     <div className="NewsDetailWidth">

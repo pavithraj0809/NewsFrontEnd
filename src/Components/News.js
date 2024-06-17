@@ -29,7 +29,7 @@ const News = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/content/get");
+      const response = await axios.get("https://news-back-end-iota.vercel.app/content/get");
       console.log("Data", response.data);
       setData(response.data);
     } catch (error) {
@@ -40,7 +40,7 @@ const News = () => {
   const deleteData = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/content/delete/${id}`
+        `https://news-back-end-iota.vercel.app/content/delete/${id}`
       );
       console.log("data", response);
       toast.error(response.data.message,{position:"top-center"});
@@ -86,7 +86,7 @@ const News = () => {
       if(add._id){
         alert(add._id)
         response = await axios.put(
-          `http://localhost:4000/content/put/${add._id}`,
+          `https://news-back-end-iota.vercel.app/content/put/${add._id}`,
           formData,
           {
             headers: {
@@ -99,7 +99,7 @@ const News = () => {
       }
       else{
          response = await axios.post(
-          "http://localhost:4000/content/post",
+          "https://news-back-end-iota.vercel.app/content/post",
           formData,
           {
             headers: {
@@ -156,7 +156,7 @@ const News = () => {
 
   const fetchAuthors = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/user/get");
+      const response = await axios.get("https://news-back-end-iota.vercel.app/user/get");
       setAuthor(response.data);
     } catch (error) {
       console.error("Error fetching authors:", error);
@@ -164,7 +164,7 @@ const News = () => {
   };
   const fetchCategory = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/user/get");
+      const response = await axios.get("https://news-back-end-iota.vercel.app/user/get");
       setCategory(response.data);
     } catch (error) {
       console.log(error);
